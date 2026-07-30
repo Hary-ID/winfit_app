@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'screens/login_screen.dart';
 
 void main() {
   runApp(const WinFitApp());
@@ -36,7 +37,7 @@ class _SplashScreenState extends State<SplashScreen> {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => const LoginPage(),
+          builder: (context) => const LoginScreen(),
         ),
       );
     });
@@ -91,26 +92,3 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 }
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.black,
-      appBar: AppBar(
-        title: const Text("Login"),
-        backgroundColor: Colors.green,
-      ),
-      body: const Center(
-        child: Text(
-          "Halaman Login WinFit",
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 24,
-          ),
-        ),
-      ),
-    );
-  }
-}
