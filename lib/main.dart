@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,16 +13,34 @@ class WinFitApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'WinFit',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
-      ),
+      theme: ThemeData.dark(),
       home: const SplashScreen(),
     );
   }
 }
 
-class SplashScreen extends StatelessWidget {
+class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
+
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+
+  @override
+  void initState() {
+    super.initState();
+
+    Timer(const Duration(seconds: 3), () {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const LoginPage(),
+        ),
+      );
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,12 +50,15 @@ class SplashScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: const [
+
             Icon(
               Icons.shield,
               size: 120,
               color: Colors.green,
             ),
+
             SizedBox(height: 20),
+
             Text(
               "WINFIT",
               style: TextStyle(
@@ -46,7 +68,9 @@ class SplashScreen extends StatelessWidget {
                 letterSpacing: 3,
               ),
             ),
+
             SizedBox(height: 10),
+
             Text(
               "Build Your Future",
               style: TextStyle(
@@ -54,7 +78,38 @@ class SplashScreen extends StatelessWidget {
                 fontSize: 18,
               ),
             ),
+
+            SizedBox(height: 40),
+
+            CircularProgressIndicator(
+              color: Colors.green,
+            )
+
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class LoginPage extends StatelessWidget {
+  const LoginPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.black,
+      appBar: AppBar(
+        title: const Text("Login"),
+        backgroundColor: Colors.green,
+      ),
+      body: const Center(
+        child: Text(
+          "Halaman Login WinFit",
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 24,
+          ),
         ),
       ),
     );
