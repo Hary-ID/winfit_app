@@ -48,28 +48,27 @@ class _SplashScreenState extends State<SplashScreen> {
       backgroundColor: Colors.black,
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
+  mainAxisAlignment: MainAxisAlignment.center,
+  children: [
+    Image.asset(
+      'assets/images/logoWin.png',
+      width: 150,
+      height: 150,
+    ),
 
-            Image.asset(
-  'assets/images/logoWin.png',
-  width: 150,
-  height: 150,
-),
+    const SizedBox(height: 20),
 
-            SizedBox(height: 20),
+    const Text(
+      "PROGRAM",
+      style: TextStyle(
+        fontSize: 38,
+        fontWeight: FontWeight.bold,
+        color: Colors.blue,
+        letterSpacing: 3,
+      ),
+    ),
 
-            Text(
-              "PROGRAM",
-              style: TextStyle(
-                fontSize: 38,
-                fontWeight: FontWeight.bold,
-                color: Colors.Blue,
-                letterSpacing: 3,
-              ),
-            ),
-
-            SizedBox(height: 10),
+    const SizedBox(height: 10),
 
             Text(
               "Build Your Future",
