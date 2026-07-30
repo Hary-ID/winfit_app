@@ -51,20 +51,20 @@ class _SplashScreenState extends State<SplashScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: const [
 
-            Icon(
-              Icons.shield,
-              size: 120,
-              color: Colors.green,
-            ),
+            Image.asset(
+  'assets/images/logoWin.png',
+  width: 150,
+  height: 150,
+),
 
             SizedBox(height: 20),
 
             Text(
-              "WINFIT",
+              "PROGRAM",
               style: TextStyle(
                 fontSize: 38,
                 fontWeight: FontWeight.bold,
-                color: Colors.green,
+                color: Colors.Blue,
                 letterSpacing: 3,
               ),
             ),
@@ -74,7 +74,7 @@ class _SplashScreenState extends State<SplashScreen> {
             Text(
               "Build Your Future",
               style: TextStyle(
-                color: Colors.white70,
+                color: Colors.pink,
                 fontSize: 18,
               ),
             ),
@@ -82,7 +82,7 @@ class _SplashScreenState extends State<SplashScreen> {
             SizedBox(height: 40),
 
             CircularProgressIndicator(
-              color: Colors.green,
+              color: Colors.white,
             )
 
           ],
