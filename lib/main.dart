@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const WinFitApp());
+  runApp(const winfit_app());
 }
 
 class WinFitApp extends StatelessWidget {
