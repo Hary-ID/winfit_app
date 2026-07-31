@@ -73,7 +73,7 @@ class _EditBarangScreenState
 
     });
 
-
+    if (!mounted) return;
     Navigator.pop(context);
 
 
