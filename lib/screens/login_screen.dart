@@ -1,6 +1,8 @@
+import 'dashboard_screen.dart';
 import 'package:flutter/material.dart';
 import 'register_screen.dart';
 
+class DashboardScreen extends StatefulWidget {
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -132,11 +134,48 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                       child: ElevatedButton(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.transparent,
-                          shadowColor: Colors.transparent,
-                        ),
+
+  onPressed: () async {
+
+    if (usernameController.text == "admin" &&
+        passwordController.text == "1234") {
+
+
+      Navigator.pushReplacement(
+
+        context,
+
+        MaterialPageRoute(
+
+          builder: (context) =>
+              const DashboardScreen(),
+
+        ),
+
+      );
+
+
+    } else {
+
+      ScaffoldMessenger.of(context)
+          .showSnackBar(
+
+        const SnackBar(
+
+          content:
+              Text("Username atau password salah"),
+
+        ),
+
+      );
+
+    }
+
+  },
+
+  child: const Text("Login"),
+
+)
                         child: const Text(
                           "LOGIN",
                           style: TextStyle(
