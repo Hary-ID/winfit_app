@@ -1,141 +1,39 @@
-import 'dashboard_screen.dart';
 import 'package:flutter/material.dart';
+import 'dashboard_screen.dart';
 import 'register_screen.dart';
 
-class DashboardScreen extends StatefulWidget {
+
 class LoginScreen extends StatefulWidget {
+
   const LoginScreen({super.key});
 
+
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<LoginScreen> createState() =>
+      _LoginScreenState();
+
 }
 
+
+
 class _LoginScreenState extends State<LoginScreen> {
+
+
+  final usernameController =
+      TextEditingController();
+
+
+  final passwordController =
+      TextEditingController();
+
+
+
   bool hidePassword = true;
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              Color(0xFF0F172A),
-              Color(0xFF3B82F6),
-              Color(0xFFFF4FA3),
-            ],
-          ),
-        ),
-        child: SafeArea(
-          child: Center(
-            child: SingleChildScrollView(
-              padding: const EdgeInsets.all(25),
-              child: Container(
-                padding: const EdgeInsets.all(25),
-                decoration: BoxDecoration(
-                  color: Colors.white.withValues(alpha: 0.12),
-                  borderRadius: BorderRadius.circular(25),
-                  border: Border.all(
-                    color: Colors.white24,
-                  ),
-                ),
-                child: Column(
-                  children: [
 
-                    Image.asset(
-                      "assets/images/logoWin.png",
-                      width: 200,
-                    ),
 
-                    const SizedBox(height: 20),
+  void login() {
 
-                    const Text(
-                      "WINFIT",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 36,
-                        fontWeight: FontWeight.bold,
-                        letterSpacing: 3,
-                      ),
-                    ),
-
-                    const SizedBox(height: 8),
-
-                    const Text(
-                      "Welcome To WinFit",
-                      style: TextStyle(
-                        color: Colors.white70,
-                        fontSize: 16,
-                      ),
-                    ),
-
-                    const SizedBox(height: 35),
-
-                    TextField(
-                      decoration: InputDecoration(
-                        hintText: "Email",
-                        prefixIcon: const Icon(
-                          Icons.email,
-                          color: Color(0xFF3B82F6),
-                        ),
-                        filled: true,
-                        fillColor: Colors.white10,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                      ),
-                    ),
-
-                    const SizedBox(height: 20),
-
-                    TextField(
-                      obscureText: hidePassword,
-                      decoration: InputDecoration(
-                        hintText: "Password",
-                        prefixIcon: const Icon(
-                          Icons.lock,
-                          color: Color(0xFFFF4FA3),
-                        ),
-                        suffixIcon: IconButton(
-                          icon: Icon(
-                            hidePassword
-                                ? Icons.visibility
-                                : Icons.visibility_off,
-                            color: Colors.white,
-                          ),
-                          onPressed: () {
-                            setState(() {
-                              hidePassword = !hidePassword;
-                            });
-                          },
-                        ),
-                        filled: true,
-                        fillColor: Colors.white10,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                      ),
-                    ),
-
-                    const SizedBox(height: 35),
-
-                    Container(
-                      width: double.infinity,
-                      height: 55,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        gradient: const LinearGradient(
-                          colors: [
-                            Color(0xFF3B82F6),
-                            Color(0xFFFF4FA3),
-                          ],
-                        ),
-                      ),
-                      child: ElevatedButton(
-
-  onPressed: () async {
 
     if (usernameController.text == "admin" &&
         passwordController.text == "1234") {
@@ -157,63 +55,264 @@ class _LoginScreenState extends State<LoginScreen> {
 
     } else {
 
+
       ScaffoldMessenger.of(context)
           .showSnackBar(
 
         const SnackBar(
 
           content:
-              Text("Username atau password salah"),
+              Text(
+                "Username atau password salah",
+              ),
 
         ),
 
       );
 
+
     }
 
-  },
-
-  child: const Text("Login"),
-
-)
-                        child: const Text(
-                          "LOGIN",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-
-                    const SizedBox(height: 20),
-
-                    TextButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                const RegisterScreen(),
-                          ),
-                        );
-                      },
-                      child: const Text(
-                        "Belum punya akun? Daftar",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
   }
+
+
+
+  @override
+  Widget build(BuildContext context) {
+
+
+    return Scaffold(
+
+      backgroundColor:
+          const Color(0xFF0F172A),
+
+
+      body: Center(
+
+        child: Padding(
+
+          padding:
+              const EdgeInsets.all(25),
+
+
+          child: Column(
+
+            mainAxisAlignment:
+                MainAxisAlignment.center,
+
+
+            children: [
+
+
+              const Text(
+
+                "WINFIT STOCK",
+
+                style: TextStyle(
+
+                  color: Colors.white,
+
+                  fontSize: 28,
+
+                  fontWeight:
+                      FontWeight.bold,
+
+                ),
+
+              ),
+
+
+              const SizedBox(
+                height: 30,
+              ),
+
+
+
+              TextField(
+
+                controller:
+                    usernameController,
+
+
+                decoration:
+                    const InputDecoration(
+
+                  filled: true,
+
+                  fillColor:
+                      Colors.white,
+
+                  hintText:
+                      "Username",
+
+                ),
+
+              ),
+
+
+
+              const SizedBox(
+                height: 15,
+              ),
+
+
+
+              TextField(
+
+                controller:
+                    passwordController,
+
+
+                obscureText:
+                    hidePassword,
+
+
+                decoration:
+                    InputDecoration(
+
+                  filled: true,
+
+                  fillColor:
+                      Colors.white,
+
+
+                  hintText:
+                      "Password",
+
+
+                  suffixIcon:
+                      IconButton(
+
+                    icon: Icon(
+
+                      hidePassword
+
+                          ? Icons.visibility_off
+
+                          : Icons.visibility,
+
+                    ),
+
+
+                    onPressed: () {
+
+                      setState(() {
+
+                        hidePassword =
+                            !hidePassword;
+
+                      });
+
+                    },
+
+                  ),
+
+                ),
+
+              ),
+
+
+
+              const SizedBox(
+                height: 25,
+              ),
+
+
+
+              SizedBox(
+
+                width:
+                    double.infinity,
+
+
+                child:
+                    ElevatedButton(
+
+                  style:
+                      ElevatedButton.styleFrom(
+
+                    backgroundColor:
+                        Colors.pink,
+
+                  ),
+
+
+                  onPressed:
+                      login,
+
+
+                  child:
+                      const Text(
+
+                    "LOGIN",
+
+                    style:
+                        TextStyle(
+
+                      color:
+                          Colors.white,
+
+                      fontSize:
+                          18,
+
+                    ),
+
+                  ),
+
+                ),
+
+              ),
+
+
+
+              TextButton(
+
+                onPressed: () {
+
+                  Navigator.push(
+
+                    context,
+
+                    MaterialPageRoute(
+
+                      builder: (context) =>
+                          const RegisterScreen(),
+
+                    ),
+
+                  );
+
+                },
+
+
+                child:
+                    const Text(
+
+                  "Belum punya akun? Daftar",
+
+                  style:
+                      TextStyle(
+
+                    color:
+                        Colors.white,
+
+                  ),
+
+                ),
+
+              )
+
+
+            ],
+
+          ),
+
+        ),
+
+      ),
+
+    );
+
+  }
+
 }
