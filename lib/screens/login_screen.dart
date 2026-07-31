@@ -75,9 +75,9 @@ final TextEditingController passwordController = TextEditingController();
                     const SizedBox(height: 35),
 
                     TextField(
-                      controller: emailController,
+                      controller: passwordController,
+  obscureText: hidePassword,
   decoration: InputDecoration(
-    hintText: "Email",
                         prefixIcon: const Icon(
                           Icons.email,
                           color: Color(0xFF3B82F6),
